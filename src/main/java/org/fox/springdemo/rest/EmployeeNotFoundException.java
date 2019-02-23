@@ -1,6 +1,6 @@
 package org.fox.springdemo.rest;
 
-public class EmployeeNotFoundException extends RuntimeException{
+public class EmployeeNotFoundException extends RuntimeException {
 
     public EmployeeNotFoundException() {
     }
