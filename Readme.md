@@ -1,1 +1,1 @@
-Demo of Spring MVC + Hibernate + Spring REST + Controller advice exception handling.
+Demo of Spring MVC + Hibernate + Spring REST + Controller advice exception handling + Asynchronous database GET.
