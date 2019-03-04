@@ -16,28 +16,17 @@ public class EmployeeController {
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
         List<Employee> employeeList = employeeService.getEmployees();
-
-        if (employeeList.isEmpty()) {
-            throw new EmployeeNotFoundException("No employees could be found");
-        }
-
         return employeeList;
     }
 
     @GetMapping("/employees/{id}")
     public Employee getEmployee(@PathVariable int id) {
         Employee employee = employeeService.getEmployee(id);
-
-        if (employee == null) {
-            throw new EmployeeNotFoundException("Employee id not found - " + id);
-        }
-
         return employee;
     }
 
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee) {
-
         //force save of new item, instead of update
         employee.setId(0);
         employeeService.saveEmployee(employee);
@@ -52,12 +41,6 @@ public class EmployeeController {
 
     @DeleteMapping("/employees/{id}")
     public String deleteEmployee(@PathVariable int id) {
-        Employee employee = employeeService.getEmployee(id);
-
-        if (employee == null) {
-            throw new EmployeeNotFoundException("Employee id not found - " + id);
-        }
-
         employeeService.deleteEmployee(id);
         return "Deleted employee id - " + id;
     }
